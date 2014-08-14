@@ -10,7 +10,7 @@
         </thead>
         <tr ng-repeat="user in users">
             <td>{{user.username}}</td>
-            <td>{{user.tags | joinTags:', ' }}</td>
+            <td>{{user.skills | joinSkills:', ' }}</td>
             <td>{{user.text}}</td>
             <td><a href="#profile/{{user._id}}">View</a></td>
         </tr>

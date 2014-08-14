@@ -31,10 +31,10 @@
                 </div>
             </div>
 		    -->
-				
+
 		    <div class="form-group">
 				<label for="skills">Skills:</label>
-				<p ng-hide="isOwner">{{user.skills}}</p>
+				<p ng-hide="isOwner">{{user.skills | joinSkills:', ' }}</p>
 				<div ng-show="isOwner" class="checkbox">
 					<ul>
 	            	<li><input ng-show="isOwner" ng-model="user.skills.writer" type="checkbox"> Writer</input>
