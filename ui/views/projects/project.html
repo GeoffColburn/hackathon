@@ -1,0 +1,52 @@
+<div class="row" ng-controller="ProjectController">
+    <hr/>
+
+    <div class="center-block col-xs-6">
+        <form role="form">
+            <div class="form-group">
+                <label for="name">Project:</label>
+
+                <p ng-hide="project.isEditable">{{project.projectname}}</p>
+
+                <div>
+                    <input ng-show="project.isEditable" ng-model="project.projectname" type="text" class="form-control"
+                           id="name" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <ul ng-hide="project.isEditable">
+                    <li ng-repeat="tag in project.tags">{{tag.text}}</li>
+                </ul>
+                <div>
+                    <tags-input ng-show="project.isEditable" ng-model="project.tags" placeholder="Add a skill" replace-spaces-with-dashes="true"></tags-input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="text">Summary:</label>
+
+                <p ng-hide="project.isEditable">{{project.text}}</p>
+
+                <div>
+                    <textarea ng-show="project.isEditable" ng-model="project.text" type="text" class="form-control"
+                              id="text" placeholder="" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="row pull-right">
+                <ul class="list-inline">
+                    <li>
+                        <button ng-show="project.isEditable" ng-click="saveChanges()" class="btn btn-primary"
+                                style="margin-right: 15px">
+                            Save Changes
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+

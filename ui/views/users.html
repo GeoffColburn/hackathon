@@ -1,0 +1,19 @@
+<div class="row" ng-controller="UserListController">
+    <table class="table table-striper">
+        <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Skills</th>
+            <th>Summary</th>
+            <th>Link</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="user in users">
+            <td>{{user.username}}</td>
+            <td>{{user.tags | joinTags:', ' }}</td>
+            <td>{{user.text}}</td>
+            <td><a href="#profile/{{user._id}}">View</a></td>
+        </tr>
+    </table>
+    <a class="btn btn-primary pull-right" href="#projects/project">Create New Project</a>
+</div>

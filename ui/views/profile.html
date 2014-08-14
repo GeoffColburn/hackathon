@@ -1,0 +1,42 @@
+<div class="row" ng-controller="UserController">
+    <h1>{{user.username}}'s Profile</h1>
+    <hr/>
+
+    <div class="center-block col-xs-6">
+        <form role="form">
+            <div class="form-group">
+                <label for="name">Display Name:</label>
+                <p ng-hide="isOwner">{{user.username}}</p>
+                <div>
+                    <input ng-show="isOwner" ng-model="user.username" type="text" class="form-control" id="name" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <ul ng-hide="isOwner">
+                    <li ng-repeat="tag in user.tags">{{tag.text}}</li>
+                </ul>
+                <div>
+                    <tags-input ng-show="isOwner" ng-model="user.tags" placeholder="Add a skill" replace-spaces-with-dashes="true"></tags-input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="text">About:</label>
+                <p ng-hide="isOwner">{{user.text}}</p>
+                <div>
+                    <textarea ng-show="isOwner" ng-model="user.text" type="text" class="form-control" id="text" placeholder="" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <button ng-show="isOwner" ng-click="saveChanges()" class="btn btn-primary pull-right" style="margin-right: 15px">
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-text {
+    color: #ffffff;
+}
+
+.center-block {
+    float:none;
+}
+
+.form-group p {
+    text-indent: 25px;
+}
+
+.navbar .dropdown-toggle {
+    padding: 5px;
+}

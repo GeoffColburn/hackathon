@@ -1,0 +1,46 @@
+<div ng-controller="TodoController">
+    <div class="row">
+
+        <div class="col-xs-push-3 col-xs-4">
+            <form role="form" ng-submit="add()">
+                <div class="form-group">
+
+                    <div>
+                        <input ng-model="todo.value" type="text" class="form-control" id="todo" placeholder="Add todo">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-xs-push-3 col-xs-1">
+            <button ng-click="add()" type="button" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+
+    </div>
+
+    <hr/>
+
+    <div>
+        <ul class="list-group">
+            <div class="col-xs-push-3 col-xs-4">
+                <li class="list-group-item" ng-repeat="todo in todos">
+                    <ul class="list-inline">
+                        <li>
+                            {{todo.value}}
+                        </li>
+                        <li class="pull-right">
+                            <button ng-click="remove(todo)" class="">X</button>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+</div>
+
+
+
+
