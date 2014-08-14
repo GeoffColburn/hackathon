@@ -7,7 +7,8 @@ var hackApp = angular.module('hackApp', [
     'ngTagsInput',
     'hackControllers',
     'hackServices',
-    'hackFilters'
+    'hackFilters',
+    'hackDirectives'
 ]);
 
 hackApp.run(function($rootScope, $location) {

@@ -5,6 +5,7 @@ import os
 from api.resources.Todo import Todo
 from api.resources.User import User
 from api.resources.Project import Project
+from api.resources.PrivateMessage import PrivateMessage
 
 from api.tools.jsonify import jsonify
 
@@ -15,7 +16,7 @@ class ResourceApi:
     todo = Todo()
     user = User()
     project = Project()
-
+    message = PrivateMessage()
 
 
 class Auth:
@@ -45,7 +46,6 @@ class Auth:
     def logged_in(self):
         cookie = cherrypy.request.cookie
         service = UserService()
-
 
         if 'user' in cookie and service.gett_user(cookie['user'].value):
 
@@ -96,6 +96,10 @@ def _run():
             'tools.jsonify.on': True
         },
         '/project': {
+            'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
+            'tools.jsonify.on': True
+        },
+        '/message': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
             'tools.jsonify.on': True
         }

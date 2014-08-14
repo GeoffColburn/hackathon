@@ -20,6 +20,7 @@
     <script src="js/app/controllers.js"></script>
     <script src="js/app/services.js"></script>
     <script src="js/app/filters.js"></script>
+    <script src="js/app/directives.js"></script>
 
 </head>
 <body>
@@ -33,7 +34,6 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#users">Users</a></li>
             <li><a href="#projects/projectlist">Projects</a></li>
-            <li><a href="#roles">Roles</a></li>
         </ul>
 
         <!-- The drop down menu -->
@@ -71,7 +71,9 @@
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#profile/{{user._id}}">Profile</a></li>
                     <li><a href="#projects/projectlist?user_id={{user._id}}">My Projects</a></li>
+                    <!--
                     <li><a href="#roles/roles?by_user={{user._id}}">My Roles</a></li>
+                    -->
                     <li class="divider"></li>
                     <li><a ng-click="logout()" href="#">Sign Out</a></li>
                 </ul>
