@@ -10,7 +10,7 @@
         </thead>
         <tr ng-repeat="project in projects">
             <td>{{project.projectname}}</td>
-            <td>{{project.tags | joinTags:', '}}</td>
+            <td>{{project.skills | joinSkills:', '}}</td>
             <td>{{project.text}}</td>
             <td><a href="#projects/project?id={{project._id}}">View</a></td>
         </tr>
