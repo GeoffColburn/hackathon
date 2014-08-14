@@ -14,3 +14,7 @@ hackServices.service('User', ['$resource', function($resource) {
 hackServices.service('Project', ['$resource', function($resource) {
     return $resource('api/resources/project/:id', { id: '@_id' });
 }])
+
+hackServices.service('PrivateMessage', ['$resource', function($resource) {
+    return $resource('api/resources/message/:id', { id: '@_id' });
+}])

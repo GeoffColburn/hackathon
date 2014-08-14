@@ -24,7 +24,7 @@ class PrivateMessage(BaseResource):
 
         if unread:
             user_id = self.get_executing_user_id()
-            n = self.service.get_private_messages_for_user(user_id)
+            n = self.service.get_unread_count_for_user(user_id)
             return {'unread': n}
 
         user_id = self.get_executing_user_id()

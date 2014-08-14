@@ -17,3 +17,9 @@
 .navbar .dropdown-toggle {
     padding: 5px;
 }
+
+.nav .badge {
+    top: 4px;
+    left: 10px;
+    position: absolute;
+}

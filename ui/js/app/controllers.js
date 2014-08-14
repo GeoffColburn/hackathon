@@ -119,3 +119,25 @@ hackControllers.controller('ProjectListController', function($scope, $routeParam
 hackControllers.controller('UserListController', function($scope, User) {
    $scope.users = User.query();
 });
+
+hackControllers.controller('MessageController', function($scope, PrivateMessage) {
+    $scope.message = {};
+
+    $scope.sendMessage = function() {
+        $scope.message.to_user_id = $scope.toUser._id;
+        var message = new PrivateMessage($scope.message);
+        message.$save();
+        $scope.dismiss();
+    };
+
+
+    $scope.mailbox = PrivateMessage.get({unread: true});
+
+});
+
+hackControllers.controller('InboxController', function($scope, PrivateMessages) {
+    $scope.inbox = PrivateMessages.$query();
+
+    
+});
+

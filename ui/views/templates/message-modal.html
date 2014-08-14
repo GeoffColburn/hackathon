@@ -1,33 +1,44 @@
 <!-- Button trigger modal -->
 <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#messageModal">
-  Send Message
+    Send Message
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">
-            Modal title
-        </h4>
-      </div>
-        <!-- BODY -->
-        <form role="form">
-            <div class="form-group">
-                <label for="subject">          
-                    Subject:
-                </label>
-                <div>
-                    <input type="text" class="form-control" id="subject" placeholder="">
-                </div>
+<div ng-controller="MessageController" class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Send to: {{toUser.username}}
+                </h4>
             </div>
-            
-        </form>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Send Message</button>
-      </div>
+            <!-- BODY -->
+            <form role="form">
+                <div class="form-group">
+                    <label for="subject">
+                        Subject:
+                    </label>
+
+                    <div>
+                        <input ng-model="message.title" type="text" class="form-control" id="subject" placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="text">Message:</label>
+
+                    <div>
+                        <textarea ng-model="message.text" type="text" class="form-control"
+                                  id="text" placeholder="" rows="10"></textarea>
+                    </div>
+                </div>
+
+            </form>
+            <div class="modal-footer">
+                <button ng-click="sendMessage()" type="button" class="btn btn-primary">Send Message</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
