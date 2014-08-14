@@ -28,7 +28,6 @@ hackFilters.filter('joinSkills', function () {
         if (input === undefined) {
             return '';
         }
-        console.dir(input);
         var tokens = [];
         $.each(input, function(k,v) {
             if (v === true) {
