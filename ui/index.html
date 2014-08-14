@@ -41,7 +41,8 @@
             <!--
             <li><a href="#register">Sign Up</a></li>
             -->
-            <li><a href="#login">Sign In</a></li>
+            <li><a href="#login">LOGIN</a></li>
+			<li><a href="#register">REGISTER</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right" ng-show="user.isLoggedIn">
             <!--
@@ -56,8 +57,8 @@
             <li class="divider-vertical"></li>
             <li><a data-role="button" ng-click="logout()" href="#home">Sign Out</a></li>
             -->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <li class="dropdown" style="cursor:pointer;">
+                <a class="dropdown-toggle" data-toggle="dropdown">
                     <ul class="list-inline">
                         <li>{{user.username}}</li>
                         <li>
@@ -66,9 +67,7 @@
                         </li>
                         <li><span class="caret"></span></li>
                     </ul>
-
-
-                </a>
+				</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#profile/{{user._id}}">Profile</a></li>
                     <li><a href="#projects/projectlist?user_id={{user._id}}">My Projects</a></li>
