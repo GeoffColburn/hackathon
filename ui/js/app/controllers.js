@@ -94,9 +94,7 @@ hackControllers.controller('ProjectController', function($scope, $routeParams, $
     $scope.saveChanges = function() {
         var model = new Project($scope.project);
         model.$save();
-        if ('return_url' in $routeParams){
-            $location.path($routeParams.return_url)
-        }
+        $location.path('/projects/projectlist');
     }
 
     $scope.addRole = function() {
