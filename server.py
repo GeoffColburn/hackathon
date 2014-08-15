@@ -109,8 +109,8 @@ def _run():
         'server.socket_host': "0.0.0.0",
         'server.socket_port': 8089,
         'server.thread_pool': 20,
-        'engine.autoreload.on': True,
-        'tools.sessions.on': True
+        'engine.autoreload.on': False,
+        'tools.sessions.on':  True
     })
     cherrypy.engine.start()
     cherrypy.engine.block()

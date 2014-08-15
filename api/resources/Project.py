@@ -12,7 +12,7 @@ class Project(BaseResource):
         super(Project, self).__init__()
         self.service = ProjectService()
 
-    def GET(self, id=None, user_id=None):
+    def GET(self, id=None, user_id=None, tags=None):
         if user_id:
             items = self.service.get_projects_by_user_id(user_id)
             if items:
@@ -22,6 +22,11 @@ class Project(BaseResource):
             item = self.service.get_project_by_id(id)
             item['isEditable'] = item['owner_id'] == self.get_executing_user_id()
             return item
+
+        if tags:
+            tag_list = tags.split(',')
+            items = self.service.get_projects_by_tags(tag_list)
+            return [i for i in items]
 
         items = self.service.get_projects()
         return [i for i in items]

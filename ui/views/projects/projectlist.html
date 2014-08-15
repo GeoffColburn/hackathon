@@ -1,19 +1,35 @@
 <div class="row" ng-controller="ProjectListController">
-    <table class="table table-striper">
-        <thead>
-        <tr>
-            <th>Project Name</th>
-            <th>Skills</th>
-            <th>Summary</th>
-            <th>Link</th>
-        </tr>
-        </thead>
-        <tr ng-repeat="project in projects">
-            <td>{{project.projectname}}</td>
-            <td>{{project.skills | joinSkills:', '}}</td>
-            <td>{{project.text}}</td>
-            <td><a href="#projects/project?id={{project._id}}">View</a></td>
-        </tr>
-    </table>
-    <a class="btn btn-primary pull-right" href="#projects/project">Create New Project</a>
-</div>
+    <div class="row">
+        <form role="form">
+            <div class="form-group">
+                <div class="">
+                    <ul id="search-skills" class="list-inline">
+                        <li  class="col-xs-2"><input ng-change="search()" ng-model="query.writer" type="checkbox">Writer</input>
+                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.illustrator" type="checkbox">Illustrator</input>
+                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.webdesigner" type="checkbox">Web Designer</input>
+                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.photographer"  type="checkbox">Photographer</input>
+                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.editor"  type="checkbox">Editor</input>
+                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.videographer" type="checkbox">Videographer</input>
+                    </ul>
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-striper">
+            <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Skills</th>
+                <th>Summary</th>
+                <th>Link</th>
+            </tr>
+            </thead>
+            <tr ng-repeat="project in projects">
+                <td>{{ project.projectname }}</td>
+                <td>{{ project.skills | joinSkills:', '}}</td>
+                <td>{{ project.text }}</td>
+                <td><a href="#projects/project?id={{ project._id }}">View</a></td>
+            </tr>
+        </table>
+        <a class="btn btn-primary pull-right" href="#projects/project">Create New Project</a>
+    </div>

@@ -111,8 +111,24 @@ hackControllers.controller('ProjectController', function($scope, $routeParams, $
 });
 
 hackControllers.controller('ProjectListController', function($scope, $routeParams, $cookies, Project) {
-    console.dir($routeParams)
     $scope.projects = Project.query({user_id: $routeParams.user_id});
+
+    $scope.query = {};
+
+    $scope.search = function() {
+        var tags = [];
+        $.each($scope.query, function(key, value) {
+          if (value == true) {
+              tags.push(key);
+          }
+          if (tags.length) {
+              var tag_string = tags.join();
+              $scope.projects = Project.query({tags: tag_string})
+          } else {
+              $scope.projects = Project.query();
+          }
+        });
+    }
 
 });
 

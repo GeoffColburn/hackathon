@@ -26,3 +26,8 @@ class ProjectService(BaseService):
     def get_projects(self):
         items = self.collection.find()
         return items
+
+    def get_projects_by_tags(self, tags):
+        query = dict((k, True) for k in tags)
+        items = self.collection.find({'skills': query})
+        return items
