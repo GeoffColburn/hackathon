@@ -79,14 +79,16 @@ hackControllers.controller('UserController', function($scope, $routeParams, $coo
 
 });
 
-hackControllers.controller('ProjectController', function($scope, $routeParams, $cookies, $location, Project) {
+hackControllers.controller('ProjectController', function($scope, $routeParams, $cookies, $location, Project, User) {
     var id = $routeParams.id;
     if (id !== undefined) {
-        $scope.project = Project.get({id: id})
+        $scope.project = Project.get({id: id}, function() {
+            $scope.owner = User.get({id: $scope.project.owner_id});
+        });
     } else {
         $scope.project = {};
         $scope.project.isEditable = true;
-        $scope.project.tags = []
+        $scope.project.tags = [];
     }
 
     $scope.saveChanges = function() {
@@ -107,6 +109,8 @@ hackControllers.controller('ProjectController', function($scope, $routeParams, $
         var model = new Project($scope.project);
         model.$save();
     }
+
+
 
 });
 
@@ -137,7 +141,9 @@ hackControllers.controller('UserListController', function($scope, User) {
 });
 
 hackControllers.controller('MessageController', function($scope, PrivateMessage) {
-    $scope.message = {};
+    $scope.message = {
+        title: "Let's Collaborate!"
+    };
 
     $scope.sendMessage = function() {
         $scope.message.to_user_id = $scope.toUser._id;

@@ -1,19 +1,25 @@
 <div class="row" ng-controller="ProjectListController">
     <div class="row">
-        <form role="form">
-            <div class="form-group">
-                <div class="">
-                    <ul id="search-skills" class="list-inline">
-                        <li  class="col-xs-2"><input ng-change="search()" ng-model="query.writer" type="checkbox">Writer</input>
-                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.illustrator" type="checkbox">Illustrator</input>
-                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.webdesigner" type="checkbox">Web Designer</input>
-                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.photographer"  type="checkbox">Photographer</input>
-                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.editor"  type="checkbox">Editor</input>
-                        <li class="col-xs-2"><input ng-change="search()" ng-model="query.videographer" type="checkbox">Videographer</input>
-                    </ul>
+        <div class="col-xs-12" style="margin-bottom: 20px;">
+            <form role="form">
+                <div class="form-group">
+                    <div class="">
+                        <ul id="search-skills" class="list-inline">
+                            <li class="col-xs-2"><input ng-change="search()" ng-model="query.writer" type="checkbox">Writer</input>
+                            <li class="col-xs-2"><input ng-change="search()" ng-model="query.illustrator"
+                                                        type="checkbox">Illustrator</input>
+                            <li class="col-xs-2"><input ng-change="search()" ng-model="query.webdesigner"
+                                                        type="checkbox">Web Designer</input>
+                            <li class="col-xs-2"><input ng-change="search()" ng-model="query.photographer"
+                                                        type="checkbox">Photographer</input>
+                            <li class="col-xs-2"><input ng-change="search()" ng-model="query.editor" type="checkbox">Editor</input>
+                            <li class="col-xs-2"><input ng-change="search()" ng-model="query.videographer"
+                                                        type="checkbox">Videographer</input>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
 
         <table class="table table-striper">
             <thead>
