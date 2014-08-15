@@ -28,6 +28,9 @@ class ProjectService(BaseService):
         return items
 
     def get_projects_by_tags(self, tags):
-        query = dict((k, True) for k in tags)
-        items = self.collection.find({'skills': query})
-        return items
+        all = self.collection.find()
+        for doc in all:
+            for tag in tags:
+                if 'skills' in doc and tag in doc["skills"] and doc["skills"][tag]:
+                    yield doc
+                    continue
