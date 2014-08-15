@@ -16,7 +16,7 @@
 			
 		    <div class="form-group">
 				<label for="skills">Skills:</label>
-				<p ng-hide="project.isEditable">{{project.skills}}</p>
+				<p ng-hide="project.isEditable">{{project.skills | joinSkills:', ' }}</p>
 				<div ng-show="project.isEditable" class="checkbox">
 					<ul>
 	            	<li><input ng-show="project.isEditable" ng-model="project.skills.writer" type="checkbox"> Writer</input>
